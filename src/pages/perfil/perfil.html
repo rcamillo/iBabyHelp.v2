@@ -1,0 +1,117 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-list>
+      <ion-item-sliding *ngFor="let u of (listagemUsuario | async)">
+        <ion-item *ngIf="uiduser == u.iduser" disable>
+          <ion-row padding-top>
+            <ion-col col-4>
+              <div *ngIf="fotoPerfilNew == null; else: NovaFoto">
+                <img [src]="u.fotoPerfil" />
+                <ion-col col-1 class="imagePerfil">
+                  <button ion-button only-icon small (click)="abreCamera()">
+                    <ion-icon name="ios-camera"></ion-icon>
+                  </button>
+                </ion-col>
+              </div>
+              <ng-template #NovaFoto>
+                <div>
+                  <img [src]="fotoPerfilNew" />
+                  <ion-col col-1 class="imagePerfil">
+                    <button ion-button only-icon small (click)="abreCamera()">
+                      <ion-icon name="ios-camera"></ion-icon>
+                    </button>
+                  </ion-col>
+                </div>
+              </ng-template>
+            </ion-col>
+            <ion-col padding-top col-8>
+              <h1 ion-text class="no-margin bold text-white">{{ u.nome }}</h1>
+              <span ion-text color="dark">{{ u.email }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding class="buttons-profile">
+            <ion-col no-padding>
+              <button ion-button icon-left small full (click)="editUsuario(u)">
+                <ion-icon name="contact"></ion-icon>
+                Editar Usuario
+              </button>
+            </ion-col>
+            <ion-col no-padding class="column">
+              <button
+                ion-button
+                icon-left
+                small
+                full
+                color="danger"
+                (click)="logout()"
+              >
+                <ion-icon name="log-out"></ion-icon>
+                Sair
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-grid>
+
+  <form [formGroup]="form">
+    <div *ngFor="let u of (listagemUsuario | async)">
+      <div *ngIf="uiduser == u.iduser">
+        <ion-item>
+          <ion-label class="Label">Nome</ion-label>
+          <ion-input
+          [disabled]="!form.valid"
+            type="text"
+            placeholder="{{u.nome}}"
+            formControlName="nome"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="Label">Nome do Bebe</ion-label>
+          <ion-input
+          [disabled]="!form.valid"
+            type="text"
+            placeholder="{{u.babyname}}"
+            formControlName="babyname"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="Label">Sexo</ion-label>
+          <ion-select [disabled]="!form.valid" formControlName="sexo" placeholder="{{u.sexo}}">
+            <ion-option value="Feminino">Feminino</ion-option>
+            <ion-option value="Masculino">Masculino</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="Label">Data de Nascimento</ion-label>
+          <ion-datetime
+            displayFormat="DD/MM/YYYY"
+            formControlName="babyDate"
+            placeholder="{{u.babyDate}}"
+            [disabled]="!form.valid"
+          ></ion-datetime>
+        </ion-item>
+      </div>
+    </div>
+
+  <br><br>
+
+    <button
+      ion-button
+      round
+      outline
+      color="dark"
+      type="submit"
+      [disabled]="!form.valid"
+      (click)="onSubmit()"
+    >
+      Atualizar
+    </button>
+  </form>
+</ion-content>

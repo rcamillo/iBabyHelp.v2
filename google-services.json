@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "727170447768",
+    "firebase_url": "https://projeto-fatec2018.firebaseio.com",
+    "project_id": "projeto-fatec2018",
+    "storage_bucket": "projeto-fatec2018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727170447768:android:8a54a706f4912dda",
+        "android_client_info": {
+          "package_name": "br.edu.fatecriopreto.feiraaplicativomarketing.iBabyhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727170447768-6haebauns98nmemuma3k0c7hjos7k4j3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDk88905jp0KnU0li-r-WovTnTpjCc5Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

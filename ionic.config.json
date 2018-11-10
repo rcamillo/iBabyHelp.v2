@@ -1,5 +1,7 @@
 {
   "name": "iBabyHelp.v2",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
