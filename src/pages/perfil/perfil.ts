@@ -55,28 +55,21 @@ export class PerfilPage {
   }
 
   abreCamera() {
-    //options do role
     const options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       targetWidth: 400,
       targetHeight: 600,
       allowEdit: true,
       correctOrientation: true
-      //encodingType: this.camera.EncodingType.JPEG,
-      //mediaType: this.camera.MediaType.PICTURE
     };
 
     this.camera.getPicture(options).then(
       imageData => {
-        // imageData is either a base64 encoded string or a file URI
-        // If it's base64 (DATA_URL):
         let base64Image = "data:image/jpeg;base64," + imageData;
         this.fotoPerfilNew = base64Image;
         this.createForm(this.fotoPerfilNew);
       },
-      err => {
-        // Handle error
-      }
+      err => {}
     );
   }
 
@@ -84,13 +77,11 @@ export class PerfilPage {
     if (this.fotoPerfilNew == null) {
       this.form = this.formBuilder.group({
         key: [this.usuario.key],
-        nome: [
-          this.usuario.nome, Validators.required],
-        babyname: [
-          this.usuario.babyname, Validators.required],
+        nome: [this.usuario.nome, Validators.required],
+        babyname: [this.usuario.babyname, Validators.required],
         sexo: [this.usuario.sexo, Validators.required],
         babyDate: [this.usuario.babyDate, Validators.required],
-        foto: [this.usuario.image]
+        foto: [this.usuario.fotoPerfil]
       });
     } else {
       image = null;
