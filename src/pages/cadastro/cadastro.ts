@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ToastController
-} from "ionic-angular";
+import { NavController, NavParams, ToastController } from "ionic-angular";
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
 
@@ -13,7 +8,6 @@ import { AngularFireAuth } from "@angular/fire/auth";
 
 import { UsuarioProvider } from "../../providers/usuario/usuario";
 
-@IonicPage()
 @Component({
   selector: "page-cadastro",
   templateUrl: "cadastro.html"

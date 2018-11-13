@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ToastController
-} from "ionic-angular";
+import { NavController, NavParams, ToastController } from "ionic-angular";
 
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "@angular/fire/auth";
@@ -17,7 +12,6 @@ import { CadastroVacinaPage } from "../cadastro-vacina/cadastro-vacina";
 import { MedicoProvider } from "../../providers/medico/medico";
 import { VacinaProvider } from "../../providers/vacina/vacina";
 
-@IonicPage()
 @Component({
   selector: "page-agenda",
   templateUrl: "agenda.html"

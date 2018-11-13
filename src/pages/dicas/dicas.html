@@ -15,6 +15,16 @@
         <ion-card-content>
           <p>{{ n.descricao }}</p>
         </ion-card-content>
+        <button
+          ion-button
+          icon-only
+          clear
+          color="secondary"
+          (click)="curtida(n)"
+        >
+          Gostei: {{ n.curtidas }}
+          <ion-icon name="ios-thumbs-up-outline"></ion-icon>
+        </button>
       </ion-card>
     </ion-list>
   </div>

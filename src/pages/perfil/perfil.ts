@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  ToastController
-} from "ionic-angular";
+import { NavController, NavParams, ToastController } from "ionic-angular";
 import { Observable } from "rxjs";
 
 import { Camera, CameraOptions } from "@ionic-native/camera";
@@ -16,7 +11,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { UsuarioProvider } from "../../providers/usuario/usuario";
 
-@IonicPage()
 @Component({
   selector: "page-perfil",
   templateUrl: "perfil.html"
