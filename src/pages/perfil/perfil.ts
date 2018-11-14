@@ -17,6 +17,7 @@ import { UsuarioProvider } from "../../providers/usuario/usuario";
 })
 export class PerfilPage {
   public fotoPerfilNew: any;
+  public valorInput: number;
   form: FormGroup;
   usuario: any;
 
@@ -33,6 +34,7 @@ export class PerfilPage {
     private toast: ToastController,
     public camera: Camera
   ) {
+    this.valorInput = this.navParams.data.valorInput || {};
     this.usuario = this.navParams.data.usuario || {};
     this.listagemUsuario = db.list("/usuario/").valueChanges();
     this.uiduser = this.afAuth.auth.currentUser.uid;
@@ -45,7 +47,9 @@ export class PerfilPage {
   }
 
   public editUsuario(u: any): void {
+    this.valorInput = 1;
     this.navCtrl.push(PerfilPage, { usuario: u });
+    console.log(this.valorInput);
   }
 
   abreCamera() {
@@ -92,6 +96,7 @@ export class PerfilPage {
   }
 
   onSubmit() {
+    this.valorInput = 0;
     if (this.form.valid) {
       this.provider
         .save(this.form.value)

@@ -71,8 +71,8 @@
             <ion-label class="Label">Nome</ion-label>
             <ion-input
               [disabled]="!form.valid"
+              value="{{u.nome}}"
               type="text"
-              placeholder="{{u.nome}}"
               formControlName="nome"
             ></ion-input>
           </ion-item>
@@ -81,8 +81,8 @@
             <ion-label class="Label">Nome do Bebe</ion-label>
             <ion-input
               [disabled]="!form.valid"
+              value="{{u.babyname}}"
               type="text"
-              placeholder="{{u.babyname}}"
               formControlName="babyname"
             ></ion-input>
           </ion-item>
@@ -104,8 +104,8 @@
             <ion-datetime
               displayFormat="DD/MM/YYYY"
               formControlName="babyDate"
-              placeholder="{{u.babyDate}}"
               [disabled]="!form.valid"
+              placeholder="{{u.babyDate}}"
             ></ion-datetime>
           </ion-item>
         </div>
