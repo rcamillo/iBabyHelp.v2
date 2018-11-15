@@ -1,9 +1,6 @@
-import { Component } from "@angular/core";
-import { Platform } from "ionic-angular";
-import { StatusBar } from "@ionic-native/status-bar";
-import { SplashScreen } from "@ionic-native/splash-screen";
-
-import { Observable } from "rxjs";
+import { Component, ViewChild } from "@angular/core";
+import { Platform, Nav } from "ionic-angular";
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireAuth } from "@angular/fire/auth";
 
@@ -15,36 +12,28 @@ import { TabsPage } from "../pages/tabs/tabs";
 })
 export class MyApp {
   rootPage: any = null;
-
-  public listagemUsuario: Observable<any[]>;
+  @ViewChild(Nav) private nav: Nav;
   public uiduser: string;
   public usuario: any;
 
   constructor(
     platform: Platform,
-    statusBar: StatusBar,
-    splashScreen: SplashScreen,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth,
+    private splashScreen: SplashScreen
   ) {
     platform.ready().then(() => {
-      afAuth.auth.onAuthStateChanged(user => {
+      afAuth.auth.onAuthStateChanged((user) => {
         if (user != null) {
           // está logado:
-          this.rootPage = TabsPage;
-          statusBar.styleDefault();
-          splashScreen.hide(); // <-- aqui
+          this.nav.push(TabsPage);
+          this.splashScreen.hide();
           this.uiduser = this.afAuth.auth.currentUser.uid;
-          this.usuario = this.listagemUsuario;
         } else {
-          statusBar.styleDefault();
-          splashScreen.hide(); // <-- aqui
           // não está logado:
-          this.rootPage = LoginPage;
+          this.nav.push(LoginPage);
+          this.splashScreen.hide();
         }
-      });
-
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      })
     });
   }
 }

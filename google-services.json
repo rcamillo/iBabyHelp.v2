@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:727170447768:android:8a54a706f4912dda",
+        "mobilesdk_app_id": "1:727170447768:android:482e6081d85ae5a3",
         "android_client_info": {
-          "package_name": "br.edu.fatecriopreto.feiraaplicativomarketing.iBabyhelp"
+          "package_name": "com.projeto.ibabyhelp"
         }
       },
       "oauth_client": [
