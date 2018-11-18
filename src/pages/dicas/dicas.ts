@@ -15,7 +15,7 @@ import { THROW_IF_NOT_FOUND } from "@angular/core/src/di/injector";
 export class DicasPage {
   public listaNoticia: Observable<any[]>;
   public idusuario: string;
-  public teste;
+  public listUsuario: any[];
 
   constructor(
     public navCtrl: NavController,
@@ -27,27 +27,35 @@ export class DicasPage {
     this.listaNoticia = db.list("/noticias/").valueChanges();
   }
 
-  curtida(noticia: any) {
-    if (noticia.curtidas == 0) {
-      this.db
-        .list("/noticias/")
-        .update(noticia.id, { curtidas: noticia.curtidas + 1 });
-      this.db.database.ref("/noticias/" + noticia.id + "/quemCurtiu/").child(this.idusuario).set('')
-    } else {
-      this.teste = Object.keys(noticia.quemCurtiu)
-      if (this.idusuario == this.teste) {
-        this.db
-          .list("/noticias/")
-          .update(noticia.id, { curtidas: noticia.curtidas - 1 });
-        this.db.list("/noticias/" + noticia.id + "/quemCurtiu/").remove(this.idusuario);
-      } else {
-        this.db
-          .list("/noticias/")
-          .update(noticia.id, { curtidas: noticia.curtidas + 1 });
-        this.db.database.ref("/noticias/" + noticia.id + "/quemCurtiu/").child(this.idusuario).set('')
-      };
-    }
-  }
+  // curtida(noticia: any) {
+  //   if (noticia.curtidas == 0) {
+  //     this.db
+  //       .list("/noticias/")
+  //       .update(noticia.id, { curtidas: noticia.curtidas + 1 });
+  //     this.db.database.ref("/noticias/" + noticia.id + "/quemCurtiu/").child(this.idusuario).set('')
+  //   } else {
+  //     this.listUsuario = Object.keys(noticia.quemCurtiu)
+  //     for (let index = 0; this.idusuario == this.listUsuario[index]; index++) {
+  //       console.log(this.listUsuario[index])
+  //       console.log(this.idusuario)
+  //       console.log('proximo')
+  //       if (this.idusuario == this.listUsuario[index]) {
+  //         this.db
+  //           .list("/noticias/")
+  //           .update(noticia.id, { curtidas: noticia.curtidas - 1 });
+  //         this.db.list("/noticias/" + noticia.id + "/quemCurtiu/").remove(this.idusuario);
+  //       } 
+  //       else {
+  //         console.log('teste')
+  //         console.log(this.listUsuario[index])
+  //         this.db
+  //           .list("/noticias/")
+  //           .update(noticia.id, { curtidas: noticia.curtidas + 1 });
+  //         this.db.database.ref("/noticias/" + noticia.id + "/quemCurtiu/").child(this.idusuario).set('')
+  //       };
+  //     }
+  //   }
+  // }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad DicasPage");
