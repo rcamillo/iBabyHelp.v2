@@ -1,33 +1,33 @@
 import { Component, ViewChild } from "@angular/core";
 import { Platform, Nav } from "ionic-angular";
-
 import { AngularFireAuth } from "@angular/fire/auth";
-
 import { LoginPage } from "../pages/login/login";
 import { TabsPage } from "../pages/tabs/tabs";
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @Component({
   templateUrl: "app.html"
 })
 export class MyApp {
-  // @ViewChild(Nav) public ir: Nav;
-  rootPage: any = null;
+  @ViewChild('myNav') nav: ViewChild;
+  rootPage: any = LoginPage;
 
   constructor(
-    platform: Platform,
     public afAuth: AngularFireAuth,
-  ) {
-    let self = this;
+    public splashscreen: SplashScreen,
+    platform: Platform) {
     platform.ready().then(() => {
-      afAuth.auth.onAuthStateChanged((user) => {
+      afAuth.auth.onAuthStateChanged(user => {
         if (user != null) {
           // está logado:
-          this.rootPage = TabsPage;
+          this.rootPage = TabsPage
+          splashscreen.hide();
         } else {
           // não está logado:
-          this.rootPage = LoginPage;
+          this.rootPage = LoginPage
+          splashscreen.hide();
         }
-      })
+      });
     });
   }
 }

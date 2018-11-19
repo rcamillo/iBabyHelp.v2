@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFireDatabase } from "angularfire2/database";
 
@@ -11,7 +10,7 @@ export class MedicoProvider {
   constructor(
     private db: AngularFireDatabase,
     public afAuth: AngularFireAuth
-  ) {}
+  ) { }
 
   save(medico: any) {
     return new Promise((resolve, reject) => {

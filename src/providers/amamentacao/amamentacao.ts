@@ -3,12 +3,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-/*
-  Generated class for the AmamentacaoProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AmamentacaoProvider {
   private PATH = 'agenda/amamentacao/';
@@ -30,11 +24,11 @@ export class AmamentacaoProvider {
       } else {
         this.uiduser = this.afAuth.auth.currentUser.uid;
         let key: string;
-         key = this.db.list(this.PATH).push({uiduser: this.uiduser, diaAmamentacao: amamentacao.diaAmamentacao, inicioAmamentacao: amamentacao.inicioAmamentacao, terminoAmamentacao: amamentacao.terminoAmamentacao, observacao: amamentacao.observacao}).key;
-         this.db.list(this.PATH)
-         .update(key, {key:key})
-         .then(() => resolve())
-          .catch((e) => reject(e));
+        key = this.db.list(this.PATH).push({uiduser: this.uiduser, diaAmamentacao: amamentacao.diaAmamentacao, inicioAmamentacao: amamentacao.inicioAmamentacao, terminoAmamentacao: amamentacao.terminoAmamentacao, observacao: amamentacao.observacao}).key;
+        this.db.list(this.PATH)
+        .update(key, {key:key})
+        .then(() => resolve())
+        .catch((e) => reject(e));
       }
     }
     )

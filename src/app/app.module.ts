@@ -1,9 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from "@ionic-native/camera";
-
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { AngularFireModule } from "@angular/fire";
@@ -79,13 +79,14 @@ const config = {
     PerfilPage
   ],
   providers: [
+    StatusBar,
+    SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     MedicoProvider,
     VacinaProvider,
     AmamentacaoProvider,
     UsuarioProvider,
     Camera,
-    SplashScreen
   ]
 })
 export class AppModule { }

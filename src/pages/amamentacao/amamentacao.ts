@@ -1,13 +1,9 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ToastController } from "ionic-angular";
-
 import { Observable } from "rxjs";
-
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "@angular/fire/auth";
-
 import { CadastroAmamentacaoPage } from "../cadastro-amamentacao/cadastro-amamentacao";
-
 import { AmamentacaoProvider } from "../../providers/amamentacao/amamentacao";
 
 @Component({

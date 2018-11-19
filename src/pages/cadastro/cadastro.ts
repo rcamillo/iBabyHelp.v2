@@ -1,11 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ToastController } from "ionic-angular";
-
 import { Camera, CameraOptions } from "@ionic-native/camera";
-
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AngularFireAuth } from "@angular/fire/auth";
-
 import { UsuarioProvider } from "../../providers/usuario/usuario";
 
 @Component({
@@ -23,7 +19,6 @@ export class CadastroPage {
     private formBuilder: FormBuilder,
     private provider: UsuarioProvider,
     private toast: ToastController,
-    public afAuth: AngularFireAuth,
     public camera: Camera
   ) {
     this.usuario = this.navParams.data.usuario || {};

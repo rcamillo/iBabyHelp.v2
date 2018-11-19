@@ -11,7 +11,7 @@ export class VacinaProvider {
   constructor(
     private db: AngularFireDatabase,
     public afAuth: AngularFireAuth
-  ) {}
+  ) { }
 
   save(vacina: any) {
     return new Promise((resolve, reject) => {

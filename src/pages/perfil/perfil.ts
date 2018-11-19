@@ -49,7 +49,6 @@ export class PerfilPage {
   public editUsuario(u: any): void {
     this.valorInput = 1;
     this.navCtrl.push(PerfilPage, { usuario: u });
-    console.log(this.valorInput);
   }
 
   abreCamera() {
@@ -67,7 +66,7 @@ export class PerfilPage {
         this.fotoPerfilNew = base64Image;
         this.createForm(this.fotoPerfilNew);
       },
-      err => {}
+      err => { }
     );
   }
 

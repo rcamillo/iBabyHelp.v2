@@ -1,14 +1,10 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, ToastController } from "ionic-angular";
-
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "@angular/fire/auth";
-
 import { Observable } from "rxjs";
-
 import { CadastroMedicoPage } from "../cadastro-medico/cadastro-medico";
 import { CadastroVacinaPage } from "../cadastro-vacina/cadastro-vacina";
-
 import { MedicoProvider } from "../../providers/medico/medico";
 import { VacinaProvider } from "../../providers/vacina/vacina";
 

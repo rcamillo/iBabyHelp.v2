@@ -1,9 +1,7 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
-
+import { NavController, AlertController } from "ionic-angular";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { NgForm } from "@angular/forms";
-
 import { RecuperaSenhaPage } from "../recupera-senha/recupera-senha";
 import { CadastroPage } from "../cadastro/cadastro";
 
@@ -14,10 +12,9 @@ import { CadastroPage } from "../cadastro/cadastro";
 export class LoginPage {
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams,
     public afAuth: AngularFireAuth,
     public alertCtrl: AlertController
-  ) {}
+  ) { }
 
   public login(form: NgForm) {
     let email = form.value.email;
@@ -25,7 +22,7 @@ export class LoginPage {
 
     this.afAuth.auth
       .signInWithEmailAndPassword(email, senha)
-      .then(result => {})
+      .then(result => { })
       .catch(error => {
         let alert = this.alertCtrl.create({
           title: "Erro ao realizar Login",

@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-
 import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 
@@ -10,7 +9,7 @@ export class UsuarioProvider {
   constructor(
     private db: AngularFireDatabase,
     public afAuth: AngularFireAuth
-  ) {}
+  ) { }
 
   save(usuario: any) {
     return new Promise((resolve, reject) => {
@@ -46,7 +45,7 @@ export class UsuarioProvider {
               .update(key, { key: key })
               .catch(e => reject(e));
           })
-          .catch(error => {});
+          .catch(error => { });
       }
     });
   }

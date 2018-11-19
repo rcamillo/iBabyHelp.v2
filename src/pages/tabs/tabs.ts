@@ -10,10 +10,10 @@ import { PerfilPage } from "../perfil/perfil";
   templateUrl: "tabs.html"
 })
 export class TabsPage {
-  tab1 = DicasPage;
-  tab2 = AgendaPage;
-  tab3 = AmamentacaoPage;
-  tab4 = PerfilPage;
+  tab1Root = DicasPage;
+  tab2Root = AgendaPage;
+  tab3Root = AmamentacaoPage;
+  tab4Root = PerfilPage;
 
   constructor() { }
 
